@@ -1,6 +1,7 @@
 # MÓDULO 1 
 ## Programación de computadoras
 **Asignatura:** Seminario de Sistemas Computacionales
+
 **Asesor:** Dr. Gandhi Samuel Hernández 
 **Estudiantes** 
 - Jonathan De La Cruz Álvarez
