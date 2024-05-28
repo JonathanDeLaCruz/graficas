@@ -1,0 +1,392 @@
+<!-- Styles -->
+<style>
+  #chartdiv {
+    width: 100%;
+    height: 90%;
+  }
+</style>
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<!-- Chart code -->
+<script>
+  am5.ready(function() {
+
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root.new("chartdiv");
+
+
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([
+    am5themes_Animated.new(root)
+  ]);
+
+
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/
+  var chart = root.container.children.push(am5xy.XYChart.new(root, {
+    panX: true,
+    panY: true,
+    wheelX: "panX",
+    wheelY: "zoomX",
+    pinchZoomX: true
+  }));
+
+
+  chart.set("colors", am5.ColorSet.new(root, {
+    step: 2,
+    colors: [
+      am5.color(0x73556E),
+      am5.color(0x9FA1A6),
+      am5.color(0xF2AA6B),
+      am5.color(0xF28F6B),
+      am5.color(0xA95A52),
+      am5.color(0xE35B5D),
+      am5.color(0xFFA446)
+    ]
+  }))
+
+
+  // Add cursor
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+  var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+    behavior: "none"
+  }));
+  cursor.lineY.set("visible", true);
+
+
+  // The data
+  var data = [
+    {
+      "year": "2013",
+      "América": 11,
+      "Atlante": 3,
+      "Atlas": 1,
+      "Chiapas": 6,
+      "Cruz Azul": 8,
+      "Guadalajara": 2,
+      "León": 8,
+      "Monterrey": 5,
+      "Morelia": 8,
+      "Pachuca": 3,
+      "Puebla": 4,
+      "Querétaro": 7,
+      "Santos": 9,
+      "Tijuana": 5,
+      "Toluca": 6,
+      "U.A.N.L": 6,
+      "UNAM": 1,
+      "Veracruz": 4
+    },
+    {
+      "year": "2014",
+      "América": 9,
+      "Atlas": 9,
+      "Chiapas": 7,
+      "Cruz Azul": 5,
+      "Guadalajara": 3,
+      "León": 7,
+      "Monterrey": 8,
+      "Morelia": 2,
+      "Pachuca": 7,
+      "Puebla": 2,
+      "Querétaro": 6,
+      "Santos": 5,
+      "Tijuana": 4,
+      "Toluca": 8,
+      "U. de G.": 3,
+      "U.A.N.L": 8,
+      "UNAM": 6,
+      "Veracruz": 3
+    },
+    {
+      "year": "2015",
+      "América": 9,
+      "Atlas": 5,
+      "Chiapas": 8,
+      "Cruz Azul": 5,
+      "Dorados de Sinaloa": 3,
+      "Guadalajara": 6,
+      "León": 10,
+      "Monterrey": 6,
+      "Morelia": 7,
+      "Pachuca": 6,
+      "Puebla": 8,
+      "Querétaro": 6,
+      "Santos": 4,
+      "Tijuana": 5,
+      "Toluca": 10,
+      "U.A.N.L": 8,
+      "UNAM": 11,
+      "Veracruz": 8
+    },
+    {
+      "year": "2016",
+      "América": 7,
+      "Atlas": 4,
+      "Chiapas": 2,
+      "Cruz Azul": 4,
+      "Guadalajara": 8,
+      "León": 7,
+      "Monterrey": 6,
+      "Morelia": 5,
+      "Necaxa": 6,
+      "Pachuca": 9,
+      "Puebla": 5,
+      "Querétaro": 5,
+      "Santos": 4,
+      "Tijuana": 10,
+      "Toluca": 6,
+      "U.A.N.L": 8,
+      "UNAM": 8,
+      "Veracruz": 3
+    },
+    {
+      "year": "2017",
+      "América": 9,
+      "Atlas": 7,
+      "Cruz Azul": 7,
+      "Guadalajara": 4,
+      "León": 8,
+      "Lobos BUAP": 7,
+      "Monterrey": 11,
+      "Morelia": 8,
+      "Necaxa": 6,
+      "Pachuca": 5,
+      "Puebla": 3,
+      "Querétaro": 3,
+      "Santos": 3,
+      "Tijuana": 6,
+      "Toluca": 8,
+      "U.A.N.L": 9,
+      "UNAM": 3,
+      "Veracruz": 4
+    },
+    {
+      "year": "2018",
+      "América": 9,
+      "Atlas": 2,
+      "Cruz Azul": 11,
+      "Guadalajara": 5,
+      "León": 5,
+      "Lobos BUAP": 5,
+      "Monterrey": 9,
+      "Morelia": 7,
+      "Necaxa": 3,
+      "Pachuca": 6,
+      "Puebla": 5,
+      "Querétaro": 7,
+      "Santos": 8,
+      "Tijuana": 4,
+      "Toluca": 8,
+      "U.A.N.L": 8,
+      "UNAM": 8,
+      "Veracruz": 2
+    },
+    {
+      "year": "2019",
+      "América": 8,
+      "Atlas": 6,
+      "Atlético de San Luis": 6,
+      "Cruz Azul": 5,
+      "FC Juarez": 5,
+      "Guadalajara": 7,
+      "León": 9,
+      "Monterrey": 8,
+      "Morelia": 8,
+      "Necaxa": 9,
+      "Pachuca": 7,
+      "Puebla": 4,
+      "Querétaro": 9,
+      "Santos": 11,
+      "Tijuana": 7,
+      "Toluca": 4,
+      "U.A.N.L": 8,
+      "UNAM": 6,
+      "Veracruz": 1
+    },
+    {
+      "year": "2020",
+      "América": 9,
+      "Atlas": 3,
+      "Atlético de San Luis": 3,
+      "Cruz Azul": 9,
+      "FC Juarez": 4,
+      "Guadalajara": 7,
+      "León": 12,
+      "Mazatlán FC": 4,
+      "Monterrey": 8,
+      "Necaxa": 7,
+      "Pachuca": 6,
+      "Puebla": 6,
+      "Querétaro": 3,
+      "Santos": 7,
+      "Tijuana": 4,
+      "Toluca": 6,
+      "U.A.N.L": 7,
+      "UNAM": 8
+    },
+    {
+      "year": "2021",
+      "América": 10,
+      "Atlas": 8,
+      "Atlético de San Luis": 4,
+      "Cruz Azul": 5,
+      "FC Juarez": 4,
+      "Guadalajara": 5,
+      "León": 8,
+      "Mazatlán FC": 5,
+      "Monterrey": 5,
+      "Necaxa": 6,
+      "Pachuca": 4,
+      "Puebla": 6,
+      "Querétaro": 3,
+      "Santos": 5,
+      "Tijuana": 3,
+      "Toluca": 6,
+      "U.A.N.L": 7,
+      "UNAM": 5
+    },
+    {
+      "year": "2022",
+      "América": 9,
+      "Atlas": 4,
+      "Atlético de San Luis": 5,
+      "Cruz Azul": 7,
+      "FC Juarez": 3,
+      "Guadalajara": 10,
+      "León": 7,
+      "Mazatlán FC": 2,
+      "Monterrey": 13,
+      "Necaxa": 3,
+      "Pachuca": 9,
+      "Puebla": 6,
+      "Querétaro": 4,
+      "Santos": 5,
+      "Tijuana": 3,
+      "Toluca": 9,
+      "U.A.N.L": 7,
+      "UNAM": 5
+    },
+    {
+      "year": "2023",
+      "América": 10,
+      "Atlas": 3,
+      "Atlético de San Luis": 5,
+      "Cruz Azul": 10,
+      "FC Juarez": 4,
+      "Guadalajara": 9,
+      "León": 7,
+      "Mazatlán FC": 4,
+      "Monterrey": 9,
+      "Necaxa": 7,
+      "Pachuca": 9,
+      "Puebla": 1,
+      "Querétaro": 6,
+      "Santos": 4,
+      "Tijuana": 2,
+      "Toluca": 9,
+      "U.A.N.L": 9,
+      "UNAM": 7
+    }
+  ];
+
+
+  // Create axes
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+    categoryField: "year",
+    startLocation: 0.5,
+    endLocation: 0.5,
+    renderer: am5xy.AxisRendererX.new(root, {
+      minorGridEnabled: true,
+      minGridDistance: 70
+    }),
+    tooltip: am5.Tooltip.new(root, {})
+  }));
+
+  xAxis.data.setAll(data);
+
+  var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+    renderer: am5xy.AxisRendererY.new(root, {})
+  }));
+
+  // Add series
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+
+  function createSeries(name, field) {
+    var series = chart.series.push(am5xy.SmoothedXLineSeries.new(root, {
+      name: name,
+      xAxis: xAxis,
+      yAxis: yAxis,
+      valueYField: field,
+      categoryXField: "year",
+      stacked: true,
+      stroke: am5.color(0xffffff),
+      tooltip: am5.Tooltip.new(root, {
+        pointerOrientation: "horizontal",
+        labelText: "[bold]{name}[/] {categoryX}: {valueY}"
+      })
+    }));
+
+    series.strokes.template.setAll({
+      strokeWidth: 4,
+      strokeOpacity: 1,
+      shadowBlur: 2,
+      shadowOffsetX: 2,
+      shadowOffsetY: 2,
+      shadowColor: am5.color(0x000000),
+      shadowOpacity: 0.1
+    })
+
+    series.fills.template.setAll({
+      fillOpacity: 1,
+      visible: true,
+
+      fillPattern: am5.GrainPattern.new(root, {
+        maxOpacity: 0.15,
+        density: 0.5,
+        colors: [am5.color(0x000000), am5.color(0x000000), am5.color(0xffffff)]
+      })
+
+    });
+
+    series.data.setAll(data);
+    series.appear(1000);
+  }
+
+  // Crear un conjunto para rastrear los equipos procesados
+  var processedTeams = new Set();
+
+  // Crear las llamadas a makeSeries
+  var makeSeriesCalls = [];
+
+  data.forEach(function(entry) {
+      Object.keys(entry).forEach(function(team) {
+          if (team !== "year" && !processedTeams.has(team)) {
+              createSeries(team, team);
+              // Marcar el equipo como procesado
+              processedTeams.add(team);
+          }
+      });
+  });
+
+  // Add scrollbar
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+  chart.set("scrollbarX", am5.Scrollbar.new(root, {
+    orientation: "horizontal"
+  }));
+
+  // Make stuff animate on load
+  // https://www.amcharts.com/docs/v5/concepts/animations/
+  chart.appear(1000, 100);
+
+  }); // end am5.ready()
+</script>
+<!-- HTML -->
+<h1 style="text-align: center;">Gráfica 4</h1>
+<h2 style="text-align: center; color: green;">Partidos ganados por los equipos anualmente</h2>
+<div id="chartdiv"></div>
