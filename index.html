@@ -23,257 +23,211 @@ am4core.useTheme(am4themes_animated);
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 
 // Add data
-chart.data = [
-  {
-    "region": "Central",
-    "state": "North Dakota",
-    "sales": 920
-  },
-  {
-    "region": "Central",
-    "state": "South Dakota",
-    "sales": 1317
-  },
-  {
-    "region": "Central",
-    "state": "Kansas",
-    "sales": 2916
-  },
-  {
-    "region": "Central",
-    "state": "Iowa",
-    "sales": 4577
-  },
-  {
-    "region": "Central",
-    "state": "Nebraska",
-    "sales": 7464
-  },
-  {
-    "region": "Central",
-    "state": "Oklahoma",
-    "sales": 19686
-  },
-  {
-    "region": "Central",
-    "state": "Missouri",
-    "sales": 22207
-  },
-  {
-    "region": "Central",
-    "state": "Minnesota",
-    "sales": 29865
-  },
-  {
-    "region": "Central",
-    "state": "Wisconsin",
-    "sales": 32125
-  },
-  {
-    "region": "Central",
-    "state": "Indiana",
-    "sales": 53549
-  },
-  {
-    "region": "Central",
-    "state": "Michigan",
-    "sales": 76281
-  },
-  {
-    "region": "Central",
-    "state": "Illinois",
-    "sales": 80162
-  },
-  {
-    "region": "Central",
-    "state": "Texas",
-    "sales": 170187
-  },
-  {
-    "region": "East",
-    "state": "West Virginia",
-    "sales": 1209
-  },
-  {
-    "region": "East",
-    "state": "Maine",
-    "sales": 1270
-  },
-  {
-    "region": "East",
-    "state": "District of Columbia",
-    "sales": 2866
-  },
-  {
-    "region": "East",
-    "state": "New Hampshire",
-    "sales": 7294
-  },
-  {
-    "region": "East",
-    "state": "Vermont",
-    "sales": 8929
-  },
-  {
-    "region": "East",
-    "state": "Connecticut",
-    "sales": 13386
-  },
-  {
-    "region": "East",
-    "state": "Rhode Island",
-    "sales": 22629
-  },
-  {
-    "region": "East",
-    "state": "Maryland",
-    "sales": 23707
-  },
-  {
-    "region": "East",
-    "state": "Delaware",
-    "sales": 27453
-  },
-  {
-    "region": "East",
-    "state": "Massachusetts",
-    "sales": 28639
-  },
-  {
-    "region": "East",
-    "state": "New Jersey",
-    "sales": 35763
-  },
-  {
-    "region": "East",
-    "state": "Ohio",
-    "sales": 78253
-  },
-  {
-    "region": "East",
-    "state": "Pennsylvania",
-    "sales": 116522
-  },
-  {
-    "region": "East",
-    "state": "New York",
-    "sales": 310914
-  },
-  {
-    "region": "South",
-    "state": "South Carolina",
-    "sales": 8483
-  },
-  {
-    "region": "South",
-    "state": "Louisiana",
-    "sales": 9219
-  },
-  {
-    "region": "South",
-    "state": "Mississippi",
-    "sales": 10772
-  },
-  {
-    "region": "South",
-    "state": "Arkansas",
-    "sales": 11678
-  },
-  {
-    "region": "South",
-    "state": "Alabama",
-    "sales": 19511
-  },
-  {
-    "region": "South",
-    "state": "Tennessee",
-    "sales": 30662
-  },
-  {
-    "region": "South",
-    "state": "Kentucky",
-    "sales": 36598
-  },
-  {
-    "region": "South",
-    "state": "Georgia",
-    "sales": 49103
-  },
-  {
-    "region": "South",
-    "state": "North Carolina",
-    "sales": 55604
-  },
-  {
-    "region": "South",
-    "state": "Virginia",
-    "sales": 70641
-  },
-  {
-    "region": "South",
-    "state": "Florida",
-    "sales": 89479
-  },
-  {
-    "region": "West",
-    "state": "Wyoming",
-    "sales": 1603
-  },
-  {
-    "region": "West",
-    "state": "Idaho",
-    "sales": 4380
-  },
-  {
-    "region": "West",
-    "state": "New Mexico",
-    "sales": 4779
-  },
-  {
-    "region": "West",
-    "state": "Montana",
-    "sales": 5589
-  },
-  {
-    "region": "West",
-    "state": "Utah",
-    "sales": 11223
-  },
-  {
-    "region": "West",
-    "state": "Nevada",
-    "sales": 16729
-  },
-  {
-    "region": "West",
-    "state": "Oregon",
-    "sales": 17431
-  },
-  {
-    "region": "West",
-    "state": "Colorado",
-    "sales": 32110
-  },
-  {
-    "region": "West",
-    "state": "Arizona",
-    "sales": 35283
-  },
-  {
-    "region": "West",
-    "state": "Washington",
-    "sales": 138656
-  },
-  {
-    "region": "West",
-    "state": "California",
-    "sales": 457731
-  }
+chart.data = [ 
+    { "year": "2023", "equipo": "América", "puntos": 35},
+    { "year": "2018", "equipo": "América", "puntos": 33},
+    { "year": "2015", "equipo": "América", "puntos": 28},
+    { "year": "2022", "equipo": "América", "puntos": 34},
+    { "year": "2014", "equipo": "América", "puntos": 31},
+    { "year": "2013", "equipo": "América", "puntos": 37},
+    { "year": "2020", "equipo": "América", "puntos": 32},
+    { "year": "2016", "equipo": "América", "puntos": 28},
+    { "year": "2017", "equipo": "América", "puntos": 30},
+    { "year": "2019", "equipo": "América", "puntos": 31},
+    { "year": "2021", "equipo": "América", "puntos": 35},
+    { "year": "2013", "equipo": "Atlante", "puntos": 12},
+    { "year": "2017", "equipo": "Atlas", "puntos": 25},
+    { "year": "2023", "equipo": "Atlas", "puntos": 14},
+    { "year": "2018", "equipo": "Atlas", "puntos": 11},
+    { "year": "2020", "equipo": "Atlas", "puntos": 14},
+    { "year": "2022", "equipo": "Atlas", "puntos": 21},
+    { "year": "2019", "equipo": "Atlas", "puntos": 21},
+    { "year": "2015", "equipo": "Atlas", "puntos": 17},
+    { "year": "2013", "equipo": "Atlas", "puntos": 12},
+    { "year": "2021", "equipo": "Atlas", "puntos": 29},
+    { "year": "2016", "equipo": "Atlas", "puntos": 19},
+    { "year": "2014", "equipo": "Atlas", "puntos": 31},
+    { "year": "2020", "equipo": "Atlético de San Luis", "puntos": 11},
+    { "year": "2021", "equipo": "Atlético de San Luis", "puntos": 20},
+    { "year": "2022", "equipo": "Atlético de San Luis", "puntos": 19},
+    { "year": "2023", "equipo": "Atlético de San Luis", "puntos": 16},
+    { "year": "2019", "equipo": "Atlético de San Luis", "puntos": 20},
+    { "year": "2014", "equipo": "Chiapas", "puntos": 28},
+    { "year": "2013", "equipo": "Chiapas", "puntos": 25},
+    { "year": "2015", "equipo": "Chiapas", "puntos": 29},
+    { "year": "2016", "equipo": "Chiapas", "puntos": 9},
+    { "year": "2023", "equipo": "Cruz Azul", "puntos": 33},
+    { "year": "2021", "equipo": "Cruz Azul", "puntos": 23},
+    { "year": "2013", "equipo": "Cruz Azul", "puntos": 29},
+    { "year": "2015", "equipo": "Cruz Azul", "puntos": 20},
+    { "year": "2018", "equipo": "Cruz Azul", "puntos": 36},
+    { "year": "2020", "equipo": "Cruz Azul", "puntos": 29},
+    { "year": "2019", "equipo": "Cruz Azul", "puntos": 23},
+    { "year": "2022", "equipo": "Cruz Azul", "puntos": 24},
+    { "year": "2014", "equipo": "Cruz Azul", "puntos": 21},
+    { "year": "2017", "equipo": "Cruz Azul", "puntos": 27},
+    { "year": "2016", "equipo": "Cruz Azul", "puntos": 19},
+    { "year": "2015", "equipo": "Dorados de Sinaloa", "puntos": 15},
+    { "year": "2023", "equipo": "FC Juarez", "puntos": 16},
+    { "year": "2021", "equipo": "FC Juarez", "puntos": 16},
+    { "year": "2022", "equipo": "FC Juarez", "puntos": 15},
+    { "year": "2019", "equipo": "FC Juarez", "puntos": 18},
+    { "year": "2020", "equipo": "FC Juarez", "puntos": 19},
+    { "year": "2020", "equipo": "Guadalajara", "puntos": 26},
+    { "year": "2018", "equipo": "Guadalajara", "puntos": 20},
+    { "year": "2016", "equipo": "Guadalajara", "puntos": 28},
+    { "year": "2023", "equipo": "Guadalajara", "puntos": 31},
+    { "year": "2022", "equipo": "Guadalajara", "puntos": 34},
+    { "year": "2021", "equipo": "Guadalajara", "puntos": 22},
+    { "year": "2014", "equipo": "Guadalajara", "puntos": 16},
+    { "year": "2019", "equipo": "Guadalajara", "puntos": 25},
+    { "year": "2013", "equipo": "Guadalajara", "puntos": 12},
+    { "year": "2017", "equipo": "Guadalajara", "puntos": 18},
+    { "year": "2015", "equipo": "Guadalajara", "puntos": 21},
+    { "year": "2021", "equipo": "León", "puntos": 29},
+    { "year": "2018", "equipo": "León", "puntos": 18},
+    { "year": "2023", "equipo": "León", "puntos": 24},
+    { "year": "2017", "equipo": "León", "puntos": 26},
+    { "year": "2019", "equipo": "León", "puntos": 33},
+    { "year": "2014", "equipo": "León", "puntos": 22},
+    { "year": "2022", "equipo": "León", "puntos": 27},
+    { "year": "2016", "equipo": "León", "puntos": 26},
+    { "year": "2013", "equipo": "León", "puntos": 30},
+    { "year": "2020", "equipo": "León", "puntos": 40},
+    { "year": "2015", "equipo": "León", "puntos": 30},
+    { "year": "2018", "equipo": "Lobos BUAP", "puntos": 19},
+    { "year": "2017", "equipo": "Lobos BUAP", "puntos": 23},
+    { "year": "2020", "equipo": "Mazatlán FC", "puntos": 16},
+    { "year": "2023", "equipo": "Mazatlán FC", "puntos": 16},
+    { "year": "2022", "equipo": "Mazatlán FC", "puntos": 7},
+    { "year": "2021", "equipo": "Mazatlán FC", "puntos": 20},
+    { "year": "2020", "equipo": "Monterrey", "puntos": 29},
+    { "year": "2014", "equipo": "Monterrey", "puntos": 27},
+    { "year": "2019", "equipo": "Monterrey", "puntos": 27},
+    { "year": "2015", "equipo": "Monterrey", "puntos": 23},
+    { "year": "2023", "equipo": "Monterrey", "puntos": 32},
+    { "year": "2016", "equipo": "Monterrey", "puntos": 25},
+    { "year": "2017", "equipo": "Monterrey", "puntos": 37},
+    { "year": "2021", "equipo": "Monterrey", "puntos": 22},
+    { "year": "2022", "equipo": "Monterrey", "puntos": 40},
+    { "year": "2018", "equipo": "Monterrey", "puntos": 30},
+    { "year": "2013", "equipo": "Monterrey", "puntos": 20},
+    { "year": "2018", "equipo": "Morelia", "puntos": 25},
+    { "year": "2017", "equipo": "Morelia", "puntos": 29},
+    { "year": "2014", "equipo": "Morelia", "puntos": 10},
+    { "year": "2013", "equipo": "Morelia", "puntos": 27},
+    { "year": "2016", "equipo": "Morelia", "puntos": 20},
+    { "year": "2015", "equipo": "Morelia", "puntos": 23},
+    { "year": "2019", "equipo": "Morelia", "puntos": 27},
+    { "year": "2023", "equipo": "Necaxa", "puntos": 27},
+    { "year": "2018", "equipo": "Necaxa", "puntos": 14},
+    { "year": "2019", "equipo": "Necaxa", "puntos": 31},
+    { "year": "2017", "equipo": "Necaxa", "puntos": 24},
+    { "year": "2020", "equipo": "Necaxa", "puntos": 24},
+    { "year": "2016", "equipo": "Necaxa", "puntos": 26},
+    { "year": "2021", "equipo": "Necaxa", "puntos": 20},
+    { "year": "2022", "equipo": "Necaxa", "puntos": 14},
+    { "year": "2019", "equipo": "Pachuca", "puntos": 25},
+    { "year": "2015", "equipo": "Pachuca", "puntos": 21},
+    { "year": "2018", "equipo": "Pachuca", "puntos": 24},
+    { "year": "2023", "equipo": "Pachuca", "puntos": 29},
+    { "year": "2013", "equipo": "Pachuca", "puntos": 17},
+    { "year": "2014", "equipo": "Pachuca", "puntos": 25},
+    { "year": "2016", "equipo": "Pachuca", "puntos": 31},
+    { "year": "2020", "equipo": "Pachuca", "puntos": 25},
+    { "year": "2022", "equipo": "Pachuca", "puntos": 28},
+    { "year": "2017", "equipo": "Pachuca", "puntos": 19},
+    { "year": "2021", "equipo": "Pachuca", "puntos": 18},
+    { "year": "2016", "equipo": "Puebla", "puntos": 20},
+    { "year": "2018", "equipo": "Puebla", "puntos": 20},
+    { "year": "2019", "equipo": "Puebla", "puntos": 17},
+    { "year": "2021", "equipo": "Puebla", "puntos": 24},
+    { "year": "2015", "equipo": "Puebla", "puntos": 27},
+    { "year": "2020", "equipo": "Puebla", "puntos": 20},
+    { "year": "2023", "equipo": "Puebla", "puntos": 5},
+    { "year": "2014", "equipo": "Puebla", "puntos": 16},
+    { "year": "2017", "equipo": "Puebla", "puntos": 16},
+    { "year": "2013", "equipo": "Puebla", "puntos": 19},
+    { "year": "2022", "equipo": "Puebla", "puntos": 20},
+    { "year": "2023", "equipo": "Querétaro", "puntos": 24},
+    { "year": "2020", "equipo": "Querétaro", "puntos": 13},
+    { "year": "2017", "equipo": "Querétaro", "puntos": 16},
+    { "year": "2019", "equipo": "Querétaro", "puntos": 31},
+    { "year": "2013", "equipo": "Querétaro", "puntos": 26},
+    { "year": "2016", "equipo": "Querétaro", "puntos": 20},
+    { "year": "2021", "equipo": "Querétaro", "puntos": 15},
+    { "year": "2022", "equipo": "Querétaro", "puntos": 20},
+    { "year": "2018", "equipo": "Querétaro", "puntos": 26},
+    { "year": "2014", "equipo": "Querétaro", "puntos": 21},
+    { "year": "2015", "equipo": "Querétaro", "puntos": 22},
+    { "year": "2017", "equipo": "Santos", "puntos": 18},
+    { "year": "2013", "equipo": "Santos", "puntos": 33},
+    { "year": "2023", "equipo": "Santos", "puntos": 15},
+    { "year": "2020", "equipo": "Santos", "puntos": 25},
+    { "year": "2022", "equipo": "Santos", "puntos": 19},
+    { "year": "2018", "equipo": "Santos", "puntos": 30},
+    { "year": "2019", "equipo": "Santos", "puntos": 37},
+    { "year": "2016", "equipo": "Santos", "puntos": 16},
+    { "year": "2015", "equipo": "Santos", "puntos": 17},
+    { "year": "2014", "equipo": "Santos", "puntos": 23},
+    { "year": "2021", "equipo": "Santos", "puntos": 24},
+    { "year": "2015", "equipo": "Tijuana", "puntos": 16},
+    { "year": "2014", "equipo": "Tijuana", "puntos": 21},
+    { "year": "2019", "equipo": "Tijuana", "puntos": 24},
+    { "year": "2013", "equipo": "Tijuana", "puntos": 21},
+    { "year": "2018", "equipo": "Tijuana", "puntos": 17},
+    { "year": "2016", "equipo": "Tijuana", "puntos": 33},
+    { "year": "2017", "equipo": "Tijuana", "puntos": 21},
+    { "year": "2023", "equipo": "Tijuana", "puntos": 14},
+    { "year": "2021", "equipo": "Tijuana", "puntos": 15},
+    { "year": "2022", "equipo": "Tijuana", "puntos": 16},
+    { "year": "2020", "equipo": "Tijuana", "puntos": 15},
+    { "year": "2019", "equipo": "Toluca", "puntos": 17},
+    { "year": "2018", "equipo": "Toluca", "puntos": 26},
+    { "year": "2016", "equipo": "Toluca", "puntos": 24},
+    { "year": "2017", "equipo": "Toluca", "puntos": 29},
+    { "year": "2021", "equipo": "Toluca", "puntos": 24},
+    { "year": "2020", "equipo": "Toluca", "puntos": 21},
+    { "year": "2023", "equipo": "Toluca", "puntos": 32},
+    { "year": "2013", "equipo": "Toluca", "puntos": 27},
+    { "year": "2014", "equipo": "Toluca", "puntos": 29},
+    { "year": "2022", "equipo": "Toluca", "puntos": 32},
+    { "year": "2015", "equipo": "Toluca", "puntos": 32},
+    { "year": "2014", "equipo": "U. de G.", "puntos": 17},
+    { "year": "2019", "equipo": "U.A.N.L", "puntos": 32},
+    { "year": "2014", "equipo": "U.A.N.L", "puntos": 31},
+    { "year": "2023", "equipo": "U.A.N.L", "puntos": 31},
+    { "year": "2018", "equipo": "U.A.N.L", "puntos": 29},
+    { "year": "2015", "equipo": "U.A.N.L", "puntos": 28},
+    { "year": "2013", "equipo": "U.A.N.L", "puntos": 25},
+    { "year": "2022", "equipo": "U.A.N.L", "puntos": 25},
+    { "year": "2020", "equipo": "U.A.N.L", "puntos": 28},
+    { "year": "2017", "equipo": "U.A.N.L", "puntos": 32},
+    { "year": "2021", "equipo": "U.A.N.L", "puntos": 28},
+    { "year": "2016", "equipo": "U.A.N.L", "puntos": 30},
+    { "year": "2013", "equipo": "UNAM", "puntos": 11},
+    { "year": "2021", "equipo": "UNAM", "puntos": 21},
+    { "year": "2018", "equipo": "UNAM", "puntos": 30},
+    { "year": "2014", "equipo": "UNAM", "puntos": 24},
+    { "year": "2015", "equipo": "UNAM", "puntos": 35},
+    { "year": "2017", "equipo": "UNAM", "puntos": 13},
+    { "year": "2016", "equipo": "UNAM", "puntos": 27},
+    { "year": "2022", "equipo": "UNAM", "puntos": 18},
+    { "year": "2023", "equipo": "UNAM", "puntos": 27},
+    { "year": "2019", "equipo": "UNAM", "puntos": 23},
+    { "year": "2020", "equipo": "UNAM", "puntos": 32},
+    { "year": "2015", "equipo": "Veracruz", "puntos": 27},
+    { "year": "2013", "equipo": "Veracruz", "puntos": 20},
+    { "year": "2019", "equipo": "Veracruz", "puntos": 8},
+    { "year": "2018", "equipo": "Veracruz", "puntos": 10},
+    { "year": "2014", "equipo": "Veracruz", "puntos": 15},
+    { "year": "2016", "equipo": "Veracruz", "puntos": 12},
+    { "year": "2017", "equipo": "Veracruz", "puntos": 14}
 ];
 
 // Create axes
 var yAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-yAxis.dataFields.category = "state";
+yAxis.dataFields.category = "equipo";
 yAxis.renderer.grid.template.location = 0;
 yAxis.renderer.labels.template.fontSize = 10;
 yAxis.renderer.minGridDistance = 10;
@@ -282,8 +236,8 @@ var xAxis = chart.xAxes.push(new am4charts.ValueAxis());
 
 // Create series
 var series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.valueX = "sales";
-series.dataFields.categoryY = "state";
+series.dataFields.valueX = "puntos";
+series.dataFields.categoryY = "equipo";
 series.columns.template.tooltipText = "{categoryY}: [bold]{valueX}[/]";
 series.columns.template.strokeWidth = 0;
 series.columns.template.adapter.add("fill", function(fill, target) {
