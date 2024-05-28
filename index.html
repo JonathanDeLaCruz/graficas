@@ -1,356 +1,382 @@
 <!-- Styles -->
 <style>
-#chartdiv {
-  width: 100%;
-  height: 800px;
-}
-</style>
-
-<!-- Resources -->
-<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
-<script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
-
-<!-- Chart code -->
-<script>
-am4core.ready(function() {
-
-// Themes begin
-am4core.useTheme(am4themes_animated);
-// Themes end
-
-// Create chart instance
-var chart = am4core.create("chartdiv", am4charts.XYChart);
-
-// Add data
-chart.data = [ 
-    { "year": "2023", "equipo": "América", "puntos": 35},
-    { "year": "2018", "equipo": "América", "puntos": 33},
-    { "year": "2015", "equipo": "América", "puntos": 28},
-    { "year": "2022", "equipo": "América", "puntos": 34},
-    { "year": "2014", "equipo": "América", "puntos": 31},
-    { "year": "2013", "equipo": "América", "puntos": 37},
-    { "year": "2020", "equipo": "América", "puntos": 32},
-    { "year": "2016", "equipo": "América", "puntos": 28},
-    { "year": "2017", "equipo": "América", "puntos": 30},
-    { "year": "2019", "equipo": "América", "puntos": 31},
-    { "year": "2021", "equipo": "América", "puntos": 35},
-    { "year": "2013", "equipo": "Atlante", "puntos": 12},
-    { "year": "2017", "equipo": "Atlas", "puntos": 25},
-    { "year": "2023", "equipo": "Atlas", "puntos": 14},
-    { "year": "2018", "equipo": "Atlas", "puntos": 11},
-    { "year": "2020", "equipo": "Atlas", "puntos": 14},
-    { "year": "2022", "equipo": "Atlas", "puntos": 21},
-    { "year": "2019", "equipo": "Atlas", "puntos": 21},
-    { "year": "2015", "equipo": "Atlas", "puntos": 17},
-    { "year": "2013", "equipo": "Atlas", "puntos": 12},
-    { "year": "2021", "equipo": "Atlas", "puntos": 29},
-    { "year": "2016", "equipo": "Atlas", "puntos": 19},
-    { "year": "2014", "equipo": "Atlas", "puntos": 31},
-    { "year": "2020", "equipo": "Atlético de San Luis", "puntos": 11},
-    { "year": "2021", "equipo": "Atlético de San Luis", "puntos": 20},
-    { "year": "2022", "equipo": "Atlético de San Luis", "puntos": 19},
-    { "year": "2023", "equipo": "Atlético de San Luis", "puntos": 16},
-    { "year": "2019", "equipo": "Atlético de San Luis", "puntos": 20},
-    { "year": "2014", "equipo": "Chiapas", "puntos": 28},
-    { "year": "2013", "equipo": "Chiapas", "puntos": 25},
-    { "year": "2015", "equipo": "Chiapas", "puntos": 29},
-    { "year": "2016", "equipo": "Chiapas", "puntos": 9},
-    { "year": "2023", "equipo": "Cruz Azul", "puntos": 33},
-    { "year": "2021", "equipo": "Cruz Azul", "puntos": 23},
-    { "year": "2013", "equipo": "Cruz Azul", "puntos": 29},
-    { "year": "2015", "equipo": "Cruz Azul", "puntos": 20},
-    { "year": "2018", "equipo": "Cruz Azul", "puntos": 36},
-    { "year": "2020", "equipo": "Cruz Azul", "puntos": 29},
-    { "year": "2019", "equipo": "Cruz Azul", "puntos": 23},
-    { "year": "2022", "equipo": "Cruz Azul", "puntos": 24},
-    { "year": "2014", "equipo": "Cruz Azul", "puntos": 21},
-    { "year": "2017", "equipo": "Cruz Azul", "puntos": 27},
-    { "year": "2016", "equipo": "Cruz Azul", "puntos": 19},
-    { "year": "2015", "equipo": "Dorados de Sinaloa", "puntos": 15},
-    { "year": "2023", "equipo": "FC Juarez", "puntos": 16},
-    { "year": "2021", "equipo": "FC Juarez", "puntos": 16},
-    { "year": "2022", "equipo": "FC Juarez", "puntos": 15},
-    { "year": "2019", "equipo": "FC Juarez", "puntos": 18},
-    { "year": "2020", "equipo": "FC Juarez", "puntos": 19},
-    { "year": "2020", "equipo": "Guadalajara", "puntos": 26},
-    { "year": "2018", "equipo": "Guadalajara", "puntos": 20},
-    { "year": "2016", "equipo": "Guadalajara", "puntos": 28},
-    { "year": "2023", "equipo": "Guadalajara", "puntos": 31},
-    { "year": "2022", "equipo": "Guadalajara", "puntos": 34},
-    { "year": "2021", "equipo": "Guadalajara", "puntos": 22},
-    { "year": "2014", "equipo": "Guadalajara", "puntos": 16},
-    { "year": "2019", "equipo": "Guadalajara", "puntos": 25},
-    { "year": "2013", "equipo": "Guadalajara", "puntos": 12},
-    { "year": "2017", "equipo": "Guadalajara", "puntos": 18},
-    { "year": "2015", "equipo": "Guadalajara", "puntos": 21},
-    { "year": "2021", "equipo": "León", "puntos": 29},
-    { "year": "2018", "equipo": "León", "puntos": 18},
-    { "year": "2023", "equipo": "León", "puntos": 24},
-    { "year": "2017", "equipo": "León", "puntos": 26},
-    { "year": "2019", "equipo": "León", "puntos": 33},
-    { "year": "2014", "equipo": "León", "puntos": 22},
-    { "year": "2022", "equipo": "León", "puntos": 27},
-    { "year": "2016", "equipo": "León", "puntos": 26},
-    { "year": "2013", "equipo": "León", "puntos": 30},
-    { "year": "2020", "equipo": "León", "puntos": 40},
-    { "year": "2015", "equipo": "León", "puntos": 30},
-    { "year": "2018", "equipo": "Lobos BUAP", "puntos": 19},
-    { "year": "2017", "equipo": "Lobos BUAP", "puntos": 23},
-    { "year": "2020", "equipo": "Mazatlán FC", "puntos": 16},
-    { "year": "2023", "equipo": "Mazatlán FC", "puntos": 16},
-    { "year": "2022", "equipo": "Mazatlán FC", "puntos": 7},
-    { "year": "2021", "equipo": "Mazatlán FC", "puntos": 20},
-    { "year": "2020", "equipo": "Monterrey", "puntos": 29},
-    { "year": "2014", "equipo": "Monterrey", "puntos": 27},
-    { "year": "2019", "equipo": "Monterrey", "puntos": 27},
-    { "year": "2015", "equipo": "Monterrey", "puntos": 23},
-    { "year": "2023", "equipo": "Monterrey", "puntos": 32},
-    { "year": "2016", "equipo": "Monterrey", "puntos": 25},
-    { "year": "2017", "equipo": "Monterrey", "puntos": 37},
-    { "year": "2021", "equipo": "Monterrey", "puntos": 22},
-    { "year": "2022", "equipo": "Monterrey", "puntos": 40},
-    { "year": "2018", "equipo": "Monterrey", "puntos": 30},
-    { "year": "2013", "equipo": "Monterrey", "puntos": 20},
-    { "year": "2018", "equipo": "Morelia", "puntos": 25},
-    { "year": "2017", "equipo": "Morelia", "puntos": 29},
-    { "year": "2014", "equipo": "Morelia", "puntos": 10},
-    { "year": "2013", "equipo": "Morelia", "puntos": 27},
-    { "year": "2016", "equipo": "Morelia", "puntos": 20},
-    { "year": "2015", "equipo": "Morelia", "puntos": 23},
-    { "year": "2019", "equipo": "Morelia", "puntos": 27},
-    { "year": "2023", "equipo": "Necaxa", "puntos": 27},
-    { "year": "2018", "equipo": "Necaxa", "puntos": 14},
-    { "year": "2019", "equipo": "Necaxa", "puntos": 31},
-    { "year": "2017", "equipo": "Necaxa", "puntos": 24},
-    { "year": "2020", "equipo": "Necaxa", "puntos": 24},
-    { "year": "2016", "equipo": "Necaxa", "puntos": 26},
-    { "year": "2021", "equipo": "Necaxa", "puntos": 20},
-    { "year": "2022", "equipo": "Necaxa", "puntos": 14},
-    { "year": "2019", "equipo": "Pachuca", "puntos": 25},
-    { "year": "2015", "equipo": "Pachuca", "puntos": 21},
-    { "year": "2018", "equipo": "Pachuca", "puntos": 24},
-    { "year": "2023", "equipo": "Pachuca", "puntos": 29},
-    { "year": "2013", "equipo": "Pachuca", "puntos": 17},
-    { "year": "2014", "equipo": "Pachuca", "puntos": 25},
-    { "year": "2016", "equipo": "Pachuca", "puntos": 31},
-    { "year": "2020", "equipo": "Pachuca", "puntos": 25},
-    { "year": "2022", "equipo": "Pachuca", "puntos": 28},
-    { "year": "2017", "equipo": "Pachuca", "puntos": 19},
-    { "year": "2021", "equipo": "Pachuca", "puntos": 18},
-    { "year": "2016", "equipo": "Puebla", "puntos": 20},
-    { "year": "2018", "equipo": "Puebla", "puntos": 20},
-    { "year": "2019", "equipo": "Puebla", "puntos": 17},
-    { "year": "2021", "equipo": "Puebla", "puntos": 24},
-    { "year": "2015", "equipo": "Puebla", "puntos": 27},
-    { "year": "2020", "equipo": "Puebla", "puntos": 20},
-    { "year": "2023", "equipo": "Puebla", "puntos": 5},
-    { "year": "2014", "equipo": "Puebla", "puntos": 16},
-    { "year": "2017", "equipo": "Puebla", "puntos": 16},
-    { "year": "2013", "equipo": "Puebla", "puntos": 19},
-    { "year": "2022", "equipo": "Puebla", "puntos": 20},
-    { "year": "2023", "equipo": "Querétaro", "puntos": 24},
-    { "year": "2020", "equipo": "Querétaro", "puntos": 13},
-    { "year": "2017", "equipo": "Querétaro", "puntos": 16},
-    { "year": "2019", "equipo": "Querétaro", "puntos": 31},
-    { "year": "2013", "equipo": "Querétaro", "puntos": 26},
-    { "year": "2016", "equipo": "Querétaro", "puntos": 20},
-    { "year": "2021", "equipo": "Querétaro", "puntos": 15},
-    { "year": "2022", "equipo": "Querétaro", "puntos": 20},
-    { "year": "2018", "equipo": "Querétaro", "puntos": 26},
-    { "year": "2014", "equipo": "Querétaro", "puntos": 21},
-    { "year": "2015", "equipo": "Querétaro", "puntos": 22},
-    { "year": "2017", "equipo": "Santos", "puntos": 18},
-    { "year": "2013", "equipo": "Santos", "puntos": 33},
-    { "year": "2023", "equipo": "Santos", "puntos": 15},
-    { "year": "2020", "equipo": "Santos", "puntos": 25},
-    { "year": "2022", "equipo": "Santos", "puntos": 19},
-    { "year": "2018", "equipo": "Santos", "puntos": 30},
-    { "year": "2019", "equipo": "Santos", "puntos": 37},
-    { "year": "2016", "equipo": "Santos", "puntos": 16},
-    { "year": "2015", "equipo": "Santos", "puntos": 17},
-    { "year": "2014", "equipo": "Santos", "puntos": 23},
-    { "year": "2021", "equipo": "Santos", "puntos": 24},
-    { "year": "2015", "equipo": "Tijuana", "puntos": 16},
-    { "year": "2014", "equipo": "Tijuana", "puntos": 21},
-    { "year": "2019", "equipo": "Tijuana", "puntos": 24},
-    { "year": "2013", "equipo": "Tijuana", "puntos": 21},
-    { "year": "2018", "equipo": "Tijuana", "puntos": 17},
-    { "year": "2016", "equipo": "Tijuana", "puntos": 33},
-    { "year": "2017", "equipo": "Tijuana", "puntos": 21},
-    { "year": "2023", "equipo": "Tijuana", "puntos": 14},
-    { "year": "2021", "equipo": "Tijuana", "puntos": 15},
-    { "year": "2022", "equipo": "Tijuana", "puntos": 16},
-    { "year": "2020", "equipo": "Tijuana", "puntos": 15},
-    { "year": "2019", "equipo": "Toluca", "puntos": 17},
-    { "year": "2018", "equipo": "Toluca", "puntos": 26},
-    { "year": "2016", "equipo": "Toluca", "puntos": 24},
-    { "year": "2017", "equipo": "Toluca", "puntos": 29},
-    { "year": "2021", "equipo": "Toluca", "puntos": 24},
-    { "year": "2020", "equipo": "Toluca", "puntos": 21},
-    { "year": "2023", "equipo": "Toluca", "puntos": 32},
-    { "year": "2013", "equipo": "Toluca", "puntos": 27},
-    { "year": "2014", "equipo": "Toluca", "puntos": 29},
-    { "year": "2022", "equipo": "Toluca", "puntos": 32},
-    { "year": "2015", "equipo": "Toluca", "puntos": 32},
-    { "year": "2014", "equipo": "U. de G.", "puntos": 17},
-    { "year": "2019", "equipo": "U.A.N.L", "puntos": 32},
-    { "year": "2014", "equipo": "U.A.N.L", "puntos": 31},
-    { "year": "2023", "equipo": "U.A.N.L", "puntos": 31},
-    { "year": "2018", "equipo": "U.A.N.L", "puntos": 29},
-    { "year": "2015", "equipo": "U.A.N.L", "puntos": 28},
-    { "year": "2013", "equipo": "U.A.N.L", "puntos": 25},
-    { "year": "2022", "equipo": "U.A.N.L", "puntos": 25},
-    { "year": "2020", "equipo": "U.A.N.L", "puntos": 28},
-    { "year": "2017", "equipo": "U.A.N.L", "puntos": 32},
-    { "year": "2021", "equipo": "U.A.N.L", "puntos": 28},
-    { "year": "2016", "equipo": "U.A.N.L", "puntos": 30},
-    { "year": "2013", "equipo": "UNAM", "puntos": 11},
-    { "year": "2021", "equipo": "UNAM", "puntos": 21},
-    { "year": "2018", "equipo": "UNAM", "puntos": 30},
-    { "year": "2014", "equipo": "UNAM", "puntos": 24},
-    { "year": "2015", "equipo": "UNAM", "puntos": 35},
-    { "year": "2017", "equipo": "UNAM", "puntos": 13},
-    { "year": "2016", "equipo": "UNAM", "puntos": 27},
-    { "year": "2022", "equipo": "UNAM", "puntos": 18},
-    { "year": "2023", "equipo": "UNAM", "puntos": 27},
-    { "year": "2019", "equipo": "UNAM", "puntos": 23},
-    { "year": "2020", "equipo": "UNAM", "puntos": 32},
-    { "year": "2015", "equipo": "Veracruz", "puntos": 27},
-    { "year": "2013", "equipo": "Veracruz", "puntos": 20},
-    { "year": "2019", "equipo": "Veracruz", "puntos": 8},
-    { "year": "2018", "equipo": "Veracruz", "puntos": 10},
-    { "year": "2014", "equipo": "Veracruz", "puntos": 15},
-    { "year": "2016", "equipo": "Veracruz", "puntos": 12},
-    { "year": "2017", "equipo": "Veracruz", "puntos": 14}
-];
-
-// Create axes
-var yAxis = chart.yAxes.push(new am4charts.CategoryAxis());
-yAxis.dataFields.category = "equipo";
-yAxis.renderer.grid.template.location = 0;
-yAxis.renderer.labels.template.fontSize = 10;
-yAxis.renderer.minGridDistance = 10;
-
-var xAxis = chart.xAxes.push(new am4charts.ValueAxis());
-
-// Create series
-var series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.valueX = "puntos";
-series.dataFields.categoryY = "equipo";
-series.columns.template.tooltipText = "{categoryY}: [bold]{valueX}[/]";
-series.columns.template.strokeWidth = 0;
-series.columns.template.adapter.add("fill", function(fill, target) {
-  if (target.dataItem) {
-    switch(target.dataItem.dataContext.region) {
-      case "Central":
-        return chart.colors.getIndex(0);
-        break;
-      case "East":
-        return chart.colors.getIndex(1);
-        break;
-      case "South":
-        return chart.colors.getIndex(2);
-        break;
-      case "West":
-        return chart.colors.getIndex(3);
-        break;
-    }
+  #chartdiv {
+    width: 100%;
+    height: 500px;
   }
-  return fill;
-});
-
-var axisBreaks = {};
-var legendData = [];
-
-// Add ranges
-function addRange(label, start, end, color) {
-  var range = yAxis.axisRanges.create();
-  range.category = start;
-  range.endCategory = end;
-  range.label.text = label;
-  range.label.disabled = false;
-  range.label.fill = color;
-  range.label.location = 0;
-  range.label.dx = -130;
-  range.label.dy = 12;
-  range.label.fontWeight = "bold";
-  range.label.fontSize = 12;
-  range.label.horizontalCenter = "left"
-  range.label.inside = true;
+  </style>
   
-  range.grid.stroke = am4core.color("#396478");
-  range.grid.strokeOpacity = 1;
-  range.tick.length = 200;
-  range.tick.disabled = false;
-  range.tick.strokeOpacity = 0.6;
-  range.tick.stroke = am4core.color("#396478");
-  range.tick.location = 0;
+  <!-- Resources -->
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
   
-  range.locations.category = 1;
-  var axisBreak = yAxis.axisBreaks.create();
-  axisBreak.startCategory = start;
-  axisBreak.endCategory = end;
-  axisBreak.breakSize = 1;
-  axisBreak.fillShape.disabled = true;
-  axisBreak.startLine.disabled = true;
-  axisBreak.endLine.disabled = true;
-  axisBreaks[label] = axisBreak;  
-
-  legendData.push({name:label, fill:color});
-}
-
-addRange("Central", "Texas", "North Dakota", chart.colors.getIndex(0));
-addRange("East", "New York", "West Virginia", chart.colors.getIndex(1));
-addRange("South", "Florida", "South Carolina", chart.colors.getIndex(2));
-addRange("West", "California", "Wyoming", chart.colors.getIndex(3));
-
-chart.cursor = new am4charts.XYCursor();
-
-
-var legend = new am4charts.Legend();
-legend.position = "right";
-legend.scrollable = true;
-legend.valign = "top";
-legend.reverseOrder = true;
-
-chart.legend = legend;
-legend.data = legendData;
-
-legend.itemContainers.template.events.on("toggled", function(event){
-  var name = event.target.dataItem.dataContext.name;
-  var axisBreak = axisBreaks[name];
-  if(event.target.isActive){
-    axisBreak.animate({property:"breakSize", to:0}, 1000, am4core.ease.cubicOut);
-    yAxis.dataItems.each(function(dataItem){
-      if(dataItem.dataContext.region == name){
-        dataItem.hide(1000, 500);
-      }
+  <!-- Chart code -->
+  <script>
+  am5.ready(function() {
+  
+  
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root.new("chartdiv");
+  
+  
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([
+    am5themes_Animated.new(root)
+  ]);
+  
+  
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/
+  var chart = root.container.children.push(am5xy.XYChart.new(root, {
+    panX: false,
+    panY: false,
+    paddingLeft: 0,
+    wheelX: "panX",
+    wheelY: "zoomX",
+    layout: root.verticalLayout
+  }));
+  
+  
+  // Add legend
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
+  var legend = chart.children.push(
+    am5.Legend.new(root, {
+      centerX: am5.p50,
+      x: am5.p50
     })
-    series.dataItems.each(function(dataItem){
-      if(dataItem.dataContext.region == name){
-        dataItem.hide(1000, 0, 0, ["valueX"]);
-      }
-    })    
+  );
+  
+  var data = 
+  [
+  {
+        "year": "2013",
+        "América": 37,
+        "Atlante": 12,
+        "Atlas": 12,
+        "Chiapas": 25,
+        "Cruz Azul": 29,
+        "Guadalajara": 12,
+        "León": 30,
+        "Monterrey": 20,
+        "Morelia": 27,
+        "Pachuca": 17,
+        "Puebla": 19,
+        "Querétaro": 26,
+        "Santos": 33,
+        "Tijuana": 21,
+        "Toluca": 27,
+        "U.A.N.L": 25,
+        "UNAM": 11,
+        "Veracruz": 20
+    },
+    {
+        "year": "2014",
+        "América": 31,
+        "Atlas": 31,
+        "Chiapas": 28,
+        "Cruz Azul": 21,
+        "Guadalajara": 16,
+        "León": 22,
+        "Monterrey": 27,
+        "Morelia": 10,
+        "Pachuca": 25,
+        "Puebla": 16,
+        "Querétaro": 21,
+        "Santos": 23,
+        "Tijuana": 21,
+        "Toluca": 29,
+        "U. de G.": 17,
+        "U.A.N.L": 31,
+        "UNAM": 24,
+        "Veracruz": 15
+    },
+    {
+        "year": "2015",
+        "América": 28,
+        "Atlas": 17,
+        "Chiapas": 29,
+        "Cruz Azul": 20,
+        "Dorados de Sinaloa": 15,
+        "Guadalajara": 21,
+        "León": 30,
+        "Monterrey": 23,
+        "Morelia": 23,
+        "Pachuca": 21,
+        "Puebla": 27,
+        "Querétaro": 22,
+        "Santos": 17,
+        "Tijuana": 16,
+        "Toluca": 32,
+        "U.A.N.L": 28,
+        "UNAM": 35,
+        "Veracruz": 27
+    },
+    {
+        "year": "2016",
+        "América": 28,
+        "Atlas": 19,
+        "Chiapas": 9,
+        "Cruz Azul": 19,
+        "Guadalajara": 28,
+        "León": 26,
+        "Monterrey": 25,
+        "Morelia": 20,
+        "Necaxa": 26,
+        "Pachuca": 31,
+        "Puebla": 20,
+        "Querétaro": 20,
+        "Santos": 16,
+        "Tijuana": 33,
+        "Toluca": 24,
+        "U.A.N.L": 30,
+        "UNAM": 27,
+        "Veracruz": 12
+    },
+    {
+        "year": "2017",
+        "América": 30,
+        "Atlas": 25,
+        "Cruz Azul": 27,
+        "Guadalajara": 18,
+        "León": 26,
+        "Lobos BUAP": 23,
+        "Monterrey": 37,
+        "Morelia": 29,
+        "Necaxa": 24,
+        "Pachuca": 19,
+        "Puebla": 16,
+        "Querétaro": 16,
+        "Santos": 18,
+        "Tijuana": 21,
+        "Toluca": 29,
+        "U.A.N.L": 32,
+        "UNAM": 13,
+        "Veracruz": 14
+    },
+    {
+        "year": "2018",
+        "América": 33,
+        "Atlas": 11,
+        "Cruz Azul": 36,
+        "Guadalajara": 20,
+        "León": 18,
+        "Lobos BUAP": 19,
+        "Monterrey": 30,
+        "Morelia": 25,
+        "Necaxa": 14,
+        "Pachuca": 24,
+        "Puebla": 20,
+        "Querétaro": 26,
+        "Santos": 30,
+        "Tijuana": 17,
+        "Toluca": 26,
+        "U.A.N.L": 29,
+        "UNAM": 30,
+        "Veracruz": 10
+    },
+    {
+        "year": "2019",
+        "América": 31,
+        "Atlas": 21,
+        "Atlético de San Luis": 20,
+        "Cruz Azul": 23,
+        "FC Juarez": 18,
+        "Guadalajara": 25,
+        "León": 33,
+        "Monterrey": 27,
+        "Morelia": 27,
+        "Necaxa": 31,
+        "Pachuca": 25,
+        "Puebla": 17,
+        "Querétaro": 31,
+        "Santos": 37,
+        "Tijuana": 24,
+        "Toluca": 17,
+        "U.A.N.L": 32,
+        "UNAM": 23,
+        "Veracruz": 8
+    },
+    {
+        "year": "2020",
+        "América": 32,
+        "Atlas": 14,
+        "Atlético de San Luis": 11,
+        "Cruz Azul": 29,
+        "FC Juarez": 19,
+        "Guadalajara": 26,
+        "León": 40,
+        "Mazatlán FC": 16,
+        "Monterrey": 29,
+        "Necaxa": 24,
+        "Pachuca": 25,
+        "Puebla": 20,
+        "Querétaro": 13,
+        "Santos": 25,
+        "Tijuana": 15,
+        "Toluca": 21,
+        "U.A.N.L": 28,
+        "UNAM": 32
+    },
+    {
+        "year": "2021",
+        "América": 35,
+        "Atlas": 29,
+        "Atlético de San Luis": 20,
+        "Cruz Azul": 23,
+        "FC Juarez": 16,
+        "Guadalajara": 22,
+        "León": 29,
+        "Mazatlán FC": 20,
+        "Monterrey": 22,
+        "Necaxa": 20,
+        "Pachuca": 18,
+        "Puebla": 24,
+        "Querétaro": 15,
+        "Santos": 24,
+        "Tijuana": 15,
+        "Toluca": 24,
+        "U.A.N.L": 28,
+        "UNAM": 21
+    },
+    {
+        "year": "2022",
+        "América": 34,
+        "Atlas": 21,
+        "Atlético de San Luis": 19,
+        "Cruz Azul": 24,
+        "FC Juarez": 15,
+        "Guadalajara": 34,
+        "León": 27,
+        "Mazatlán FC": 7,
+        "Monterrey": 40,
+        "Necaxa": 14,
+        "Pachuca": 28,
+        "Puebla": 20,
+        "Querétaro": 20,
+        "Santos": 19,
+        "Tijuana": 16,
+        "Toluca": 32,
+        "U.A.N.L": 25,
+        "UNAM": 18
+    },
+    {
+        "year": "2023",
+        "América": 35,
+        "Atlas": 14,
+        "Atlético de San Luis": 16,
+        "Cruz Azul": 33,
+        "FC Juarez": 16,
+        "Guadalajara": 31,
+        "León": 24,
+        "Mazatlán FC": 16,
+        "Monterrey": 32,
+        "Necaxa": 27,
+        "Pachuca": 29,
+        "Puebla": 5,
+        "Querétaro": 24,
+        "Santos": 15,
+        "Tijuana": 14,
+        "Toluca": 32,
+        "U.A.N.L": 31,
+        "UNAM": 27
+    }
+  ];
+  
+  
+  // Create axes
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  var xRenderer = am5xy.AxisRendererX.new(root, {
+    cellStartLocation: 0.1,
+    cellEndLocation: 0.9,
+    minorGridEnabled: true
+  })
+  
+  var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+    categoryField: "year",
+    renderer: xRenderer,
+    tooltip: am5.Tooltip.new(root, {})
+  }));
+  
+  xRenderer.grid.template.setAll({
+    location: 1
+  })
+  
+  xAxis.data.setAll(data);
+  
+  var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+    renderer: am5xy.AxisRendererY.new(root, {
+      strokeOpacity: 0.1
+    })
+  }));
+  
+  
+  // Add series
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+  function makeSeries(name, fieldName) {
+    var series = chart.series.push(am5xy.ColumnSeries.new(root, {
+      name: name,
+      xAxis: xAxis,
+      yAxis: yAxis,
+      valueYField: fieldName,
+      categoryXField: "year"
+    }));
+    series.columns.template.setAll({
+      tooltipText: "{name}, {categoryX}:{valueY}",
+      width: am5.percent(90),
+      tooltipY: 0,
+      strokeOpacity: 0
+    });
+    
+    series.data.setAll(data);
+    console.log(series.data)
+  
+    // Make stuff animate on load
+    // https://www.amcharts.com/docs/v5/concepts/animations/
+    series.appear();
+  
+    series.bullets.push(function () {
+      return am5.Bullet.new(root, {
+        locationY: 0,
+        sprite: am5.Label.new(root, {
+          text: "{valueY}",
+          fill: root.interfaceColors.get("alternativeText"),
+          centerY: 0,
+          centerX: am5.p50,
+          populateText: true
+        })
+      });
+    });
+  
+    legend.data.push(series);
   }
-  else{
-    axisBreak.animate({property:"breakSize", to:1}, 1000, am4core.ease.cubicOut);
-    yAxis.dataItems.each(function(dataItem){
-      if(dataItem.dataContext.region == name){
-        dataItem.show(1000);
-      }
-    })  
+  
+// Crear un conjunto para rastrear los equipos procesados
+var processedTeams = new Set();
 
-    series.dataItems.each(function(dataItem){
-      if(dataItem.dataContext.region == name){
-        dataItem.show(1000, 0, ["valueX"]);
-      }
-    })        
-  }
-})
+// Crear las llamadas a makeSeries
+var makeSeriesCalls = [];
 
-}); // end am4core.ready()
-</script>
-
-<!-- HTML -->
-<div id="chartdiv"></div>
+data.forEach(function(entry) {
+    Object.keys(entry).forEach(function(team) {
+        if (team !== "year" && !processedTeams.has(team)) {
+            makeSeries(team, team);
+            // Marcar el equipo como procesado
+            processedTeams.add(team);
+        }
+    });
+});
+  
+  
+  // Make stuff animate on load
+  // https://www.amcharts.com/docs/v5/concepts/animations/
+  chart.appear(1000, 100);
+  
+  }); // end am5.ready()
+  </script>
+  
+  <!-- HTML -->
+  <div id="chartdiv"></div>
+  amCharts
