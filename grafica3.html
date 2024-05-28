@@ -1,0 +1,312 @@
+<!-- Styles -->
+<style>
+  #chartdiv {
+    width: 100%;
+    height: 90%;
+  }
+</style>
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<!-- Chart code -->
+<script>
+  am5.ready(function() {
+
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root.new("chartdiv");
+
+  // Create custom theme
+  // https://www.amcharts.com/docs/v5/concepts/themes/#Quick_custom_theme
+  const myTheme = am5.Theme.new(root);
+  myTheme.rule("Label").set("fontSize", 10);
+  myTheme.rule("Grid").set("strokeOpacity", 0.06);
+
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([
+    am5themes_Animated.new(root),
+    myTheme
+  ]);
+
+  // Data
+  var temperatures = {
+    'LIGA MX' : [
+      ['América', 37.0, 31.0, 28.0, 28.0, 30.0, 33.0, 31.0, 32.0, 35.0, 34.0, 35.0],
+      ['Atlante', 12.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      ['Atlas', 12.0, 31.0, 17.0, 19.0, 25.0, 11.0, 21.0, 14.0, 29.0, 21.0, 14.0],
+      ['Atlético de San Luis', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 20.0, 11.0, 20.0, 19.0, 16.0],
+      ['Chiapas', 25.0, 28.0, 29.0, 9.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      ['Cruz Azul', 29.0, 21.0, 20.0, 19.0, 27.0, 36.0, 23.0, 29.0, 23.0, 24.0, 33.0],
+      ['Dorados de Sinaloa', 0.0, 0.0, 15.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      ['FC Juarez', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 18.0, 19.0, 16.0, 15.0, 16.0],
+      ['Guadalajara', 12.0, 16.0, 21.0, 28.0, 18.0, 20.0, 25.0, 26.0, 22.0, 34.0, 31.0],
+      ['León', 30.0, 22.0, 30.0, 26.0, 26.0, 18.0, 33.0, 40.0, 29.0, 27.0, 24.0],
+      ['Lobos BUAP', 0.0, 0.0, 0.0, 0.0, 23.0, 19.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      ['Mazatlán FC', 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 16.0, 20.0, 7.0, 16.0],
+      ['Monterrey', 20.0, 27.0, 23.0, 25.0, 37.0, 30.0, 27.0, 29.0, 22.0, 40.0, 32.0],
+      ['Morelia', 27.0, 10.0, 23.0, 20.0, 29.0, 25.0, 27.0, 0.0, 0.0, 0.0, 0.0],
+      ['Necaxa', 0.0, 0.0, 0.0, 26.0, 24.0, 14.0, 31.0, 24.0, 20.0, 14.0, 27.0],
+      ['Pachuca', 17.0, 25.0, 21.0, 31.0, 19.0, 24.0, 25.0, 25.0, 18.0, 28.0, 29.0],
+      ['Puebla', 19.0, 16.0, 27.0, 20.0, 16.0, 20.0, 17.0, 20.0, 24.0, 20.0, 5.0],
+      ['Querétaro', 26.0, 21.0, 22.0, 20.0, 16.0, 26.0, 31.0, 13.0, 15.0, 20.0, 24.0],
+      ['Santos', 33.0, 23.0, 17.0, 16.0, 18.0, 30.0, 37.0, 25.0, 24.0, 19.0, 15.0],
+      ['Tijuana', 21.0, 21.0, 16.0, 33.0, 21.0, 17.0, 24.0, 15.0, 15.0, 16.0, 14.0],
+      ['Toluca', 27.0, 29.0, 32.0, 24.0, 29.0, 26.0, 17.0, 21.0, 24.0, 32.0, 32.0],
+      ['U. de G.', 0.0, 17.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      ['U.A.N.L', 25.0, 31.0, 28.0, 30.0, 32.0, 29.0, 32.0, 28.0, 28.0, 25.0, 31.0],
+      ['UNAM', 11.0, 24.0, 35.0, 27.0, 13.0, 30.0, 23.0, 32.0, 21.0, 18.0, 27.0],
+      ['Veracruz', 20.0, 15.0, 27.0, 12.0, 14.0, 10.0, 8.0, 0.0, 0.0, 0.0, 0.0]
+    ]
+  }
+
+  // Modify defaults
+  //root.numberFormatter.set("numberFormat", "+#.0°C|#.0°C|0.0°C");
+
+  var startYear = 2013;
+  var endYear = 2023;
+  var currentYear = 2013;
+
+  var div = document.getElementById("chartdiv");
+
+  var colorSet = am5.ColorSet.new(root, {});
+
+
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/radar-chart/
+  var chart = root.container.children.push(am5radar.RadarChart.new(root, {
+    panX: false,
+    panY: false,
+    wheelX: "panX",
+    wheelY: "zoomX",
+    innerRadius: am5.percent(40),
+    radius: am5.percent(65),
+    startAngle: 270 - 170,
+    endAngle: 270 + 170
+  }));
+
+
+  // Add cursor
+  // https://www.amcharts.com/docs/v5/charts/radar-chart/#Cursor
+  var cursor = chart.set("cursor", am5radar.RadarCursor.new(root, {
+    behavior: "zoomX",
+    radius: am5.percent(40),
+    innerRadius: -25
+  }));
+  cursor.lineY.set("visible", false);
+
+
+  // Create axes and their renderers
+  // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_axes
+  var xRenderer = am5radar.AxisRendererCircular.new(root, {
+    minGridDistance: 10
+  });
+
+  xRenderer.labels.template.setAll({
+    radius: 10,
+    textType: "radial",
+    centerY: am5.p50
+  });
+
+  var yRenderer = am5radar.AxisRendererRadial.new(root, {
+    axisAngle: 90
+  });
+
+  yRenderer.labels.template.setAll({
+    centerX: am5.p50
+  });
+
+  var categoryAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+    maxDeviation: 0,
+    categoryField: "equipo",
+    renderer: xRenderer
+  }));
+
+  var valueAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+    min: 0,
+    max: 50,
+    extraMax: 0.1,
+    renderer: yRenderer
+  }));
+
+
+  // Create series
+  // https://www.amcharts.com/docs/v5/charts/radar-chart/#Adding_series
+  var series = chart.series.push(am5radar.RadarColumnSeries.new(root, {
+    calculateAggregates: true,
+    name: "Series",
+    xAxis: categoryAxis,
+    yAxis: valueAxis,
+    valueYField: "value" + currentYear,
+    categoryXField: "equipo",
+    tooltip: am5.Tooltip.new(root, {
+      labelText: "{categoryX}: {valueY}"
+    })
+  }));
+
+  series.columns.template.set("strokeOpacity", 0);
+
+
+  // Set up heat rules
+  // https://www.amcharts.com/docs/v5/concepts/settings/heat-rules/
+  series.set("heatRules", [{
+    target: series.columns.template,
+    key: "fill",
+    min: am5.color(0x673AB7),
+    max: am5.color(0xF44336),
+    dataField: "valueY"
+  }]);
+
+  // Add scrollbars
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/scrollbars/
+  chart.set("scrollbarX", am5.Scrollbar.new(root, { orientation: "horizontal" }));
+  chart.set("scrollbarY", am5.Scrollbar.new(root, { orientation: "vertical" }));
+
+  // Add year label
+  var yearLabel = chart.radarContainer.children.push(am5.Label.new(root, {
+    fontSize: "2em",
+    text: currentYear.toString(),
+    centerX: am5.p50,
+    centerY: am5.p50,
+    fill: am5.color(0x673AB7)
+  }));
+
+
+  // Generate and set data
+  // https://www.amcharts.com/docs/v5/charts/radar-chart/#Setting_data
+  var data = generateRadarData();
+  series.data.setAll(data);
+  categoryAxis.data.setAll(data);
+
+  series.appear(1000);
+  chart.appear(1000, 100);
+
+  function generateRadarData() {
+    var data = [];
+    var i = 0;
+    for (var continent in temperatures) {
+      var continentData = temperatures[continent];
+
+      continentData.forEach(function(equipo) {
+        var rawDataItem = { "equipo": equipo[0] }
+
+        for (var y = 0; y < equipo.length; y++) {
+          rawDataItem["value" + (startYear + y - 1)] = equipo[y];
+        }
+
+        data.push(rawDataItem);
+      });
+
+      createRange(continent, continentData, i);
+      i++;
+
+    }
+    return data;
+  }
+
+
+  function createRange(name, continentData, index) {
+    var axisRange = categoryAxis.createAxisRange(categoryAxis.makeDataItem({above:true}));
+    axisRange.get("label").setAll({ text: name });
+    // first equipo
+    axisRange.set("category", continentData[0][0]);
+    // last equipo
+    axisRange.set("endCategory", continentData[continentData.length - 1][0]);
+
+    // every 3rd color for a bigger contrast
+    var fill = axisRange.get("axisFill");
+    fill.setAll({
+      toggleKey: "active",
+      cursorOverStyle: "pointer",
+      fill: colorSet.getIndex(index * 3),
+      visible: true,
+      innerRadius: -25
+    });
+    axisRange.get("grid").set("visible", false);
+
+    var label = axisRange.get("label");
+    label.setAll({
+      fill: am5.color(0xffffff),
+      textType: "circular",
+      radius: -16
+    });
+
+    fill.events.on("click", function(event) {
+      var dataItem = event.target.dataItem;
+      if (event.target.get("active")) {
+        categoryAxis.zoom(0, 1);
+      }
+      else {
+        categoryAxis.zoomToCategories(dataItem.get("category"), dataItem.get("endCategory"));
+      }
+    });
+  }
+
+
+  // Create controls
+  var container = chart.children.push(am5.Container.new(root, {
+    y: am5.percent(95),
+    centerX: am5.p50,
+    x: am5.p50,
+    width: am5.percent(80),
+    layout: root.horizontalLayout
+  }));
+
+  var playButton = container.children.push(am5.Button.new(root, {
+    themeTags: ["play"],
+    centerY: am5.p50,
+    marginRight: 15,
+    icon: am5.Graphics.new(root, {
+      themeTags: ["icon"]
+    })
+  }));
+
+  playButton.events.on("click", function () {
+    if (playButton.get("active")) {
+      slider.set("start", slider.get("start") + 0.0001);
+    }
+    else {
+      slider.animate({
+        key: "start",
+        to: 1,
+        duration: 15000 * (1 - slider.get("start"))
+      });
+    }
+  })
+
+  var slider = container.children.push(am5.Slider.new(root, {
+    orientation: "horizontal",
+    start: 0.5,
+    centerY: am5.p50
+  }));
+
+  slider.on("start", function (start) {
+    if (start === 1) {
+      playButton.set("active", false);
+    }
+  });
+
+  slider.events.on("rangechanged", function () {
+    updateRadarData(startYear + Math.round(slider.get("start", 0) * (endYear - startYear)));
+  });
+
+  function updateRadarData(year) {
+    if (currentYear != year) {
+      currentYear = year;
+      yearLabel.set("text", currentYear.toString());
+      am5.array.each(series.dataItems, function (dataItem) {
+        var newValue = dataItem.dataContext["value" + year];
+        dataItem.set("valueY", newValue);
+        dataItem.animate({ key: "valueYWorking", to: newValue, duration: 500 });
+      });
+    }
+  }
+
+  }); // end am5.ready()
+</script>
+<!-- HTML -->
+<h1 style="text-align: center;">Gráfica 3</h1>
+<h2 style="text-align: center; color: green;">El total de puntos obtenidos por los equipos anualmente</h2>
+<div id="chartdiv"></div>
