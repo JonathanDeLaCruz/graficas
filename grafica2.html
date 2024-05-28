@@ -1,0 +1,165 @@
+<meta charset="UTF-8">
+<!-- Styles -->
+<style>
+  #chartdiv {
+    width: 100%;
+    height: 500px;
+  }
+</style>
+<!-- Resources -->
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+<!-- Chart code -->
+<script>
+  am5.ready(function() {
+
+  var data = [
+    {'equipo': 'América', 'puntos': 354, 'goles_favor': 324, 'goles_contra': 199, 'jugados': 188},
+    {'equipo': 'Atlante', 'puntos': 12, 'goles_favor': 17, 'goles_contra': 35, 'jugados': 17},
+    {'equipo': 'Atlas', 'puntos': 214, 'goles_favor': 213, 'goles_contra': 257, 'jugados': 188},
+    {'equipo': 'Atlético de San Luis', 'puntos': 86, 'goles_favor': 98, 'goles_contra': 145, 'jugados': 86},
+    {'equipo': 'Chiapas', 'puntos': 91, 'goles_favor': 90, 'goles_contra': 102, 'jugados': 68},
+    {'equipo': 'Cruz Azul', 'puntos': 284, 'goles_favor': 242, 'goles_contra': 208, 'jugados': 188},
+    {'equipo': 'Dorados de Sinaloa', 'puntos': 15, 'goles_favor': 13, 'goles_contra': 29, 'jugados': 17},
+    {'equipo': 'FC Juarez', 'puntos': 84, 'goles_favor': 83, 'goles_contra': 122, 'jugados': 86},
+    {'equipo': 'Guadalajara', 'puntos': 253, 'goles_favor': 228, 'goles_contra': 229, 'jugados': 188},
+    {'equipo': 'León', 'puntos': 305, 'goles_favor': 284, 'goles_contra': 232, 'jugados': 187},
+    {'equipo': 'Lobos BUAP', 'puntos': 42, 'goles_favor': 47, 'goles_contra': 56, 'jugados': 34},
+    {'equipo': 'Mazatlán FC', 'puntos': 59, 'goles_favor': 82, 'goles_contra': 128, 'jugados': 68},
+    {'equipo': 'Monterrey', 'puntos': 312, 'goles_favor': 300, 'goles_contra': 217, 'jugados': 188},
+    {'equipo': 'Morelia', 'puntos': 161, 'goles_favor': 175, 'goles_contra': 186, 'jugados': 120},
+    {'equipo': 'Necaxa', 'puntos': 180, 'goles_favor': 173, 'goles_contra': 180, 'jugados': 137},
+    {'equipo': 'Pachuca', 'puntos': 262, 'goles_favor': 283, 'goles_contra': 245, 'jugados': 187},
+    {'equipo': 'Puebla', 'puntos': 204, 'goles_favor': 220, 'goles_contra': 289, 'jugados': 188},
+    {'equipo': 'Querétaro', 'puntos': 234, 'goles_favor': 229, 'goles_contra': 244, 'jugados': 187},
+    {'equipo': 'Santos', 'puntos': 257, 'goles_favor': 265, 'goles_contra': 265, 'jugados': 188},
+    {'equipo': 'Tijuana', 'puntos': 213, 'goles_favor': 211, 'goles_contra': 281, 'jugados': 188},
+    {'equipo': 'Toluca', 'puntos': 293, 'goles_favor': 296, 'goles_contra': 241, 'jugados': 188},
+    {'equipo': 'U. de G.', 'puntos': 17, 'goles_favor': 10, 'goles_contra': 16, 'jugados': 17},
+    {'equipo': 'U.A.N.L', 'puntos': 319, 'goles_favor': 289, 'goles_contra': 181, 'jugados': 187},
+    {'equipo': 'UNAM', 'puntos': 261, 'goles_favor': 258, 'goles_contra': 241, 'jugados': 188},
+    {'equipo': 'Veracruz', 'puntos': 106, 'goles_favor': 115, 'goles_contra': 217, 'jugados': 120}
+  ];
+
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root.new("chartdiv");
+
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([
+    am5themes_Animated.new(root)
+  ]);
+
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/
+  var chart = root.container.children.push(am5xy.XYChart.new(root, {
+    panX: false,
+    panY: false,
+    wheelY: "none"
+  }));
+
+  chart.zoomOutButton.set("forceHidden", false);
+
+  chart.get("colors").set("step", 2);
+
+  // Create axes
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+    categoryField: "equipo",
+    renderer: am5xy.AxisRendererX.new(root, {
+      minGridDistance: 30,
+      labels: {
+        centerY: am5.p50 // Centrar verticalmente las etiquetas
+      }
+    }),
+    tooltip: am5.Tooltip.new(root, {})
+  }));
+
+  // Rotar las etiquetas del eje X
+  let xRenderer = xAxis.get("renderer");
+  xRenderer.labels.template.setAll({
+    rotation: -90, // Rotar 90 grados en sentido antihorario
+  });
+
+  var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+    renderer: am5xy.AxisRendererY.new(root, {})
+  }));
+
+  // Create series for "puntos"
+  var puntosSeries = chart.series.push(am5xy.ColumnSeries.new(root, {
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueYField: "puntos",
+    categoryXField: "equipo",
+    tooltip: am5.Tooltip.new(root, {
+      labelText: "{name}: {valueY}"
+    })
+  }));
+
+  puntosSeries.data.setAll(data);
+  puntosSeries.set("name", "Puntos");
+
+  // Create series for "goles_favor"
+  var golesFavorSeries = chart.series.push(am5xy.LineSeries.new(root, {
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueYField: "goles_favor",
+    categoryXField: "equipo",
+    tooltip: am5.Tooltip.new(root, {
+      labelText: "{name}: {valueY}"
+    })
+  }));
+
+  golesFavorSeries.data.setAll(data);
+  golesFavorSeries.set("name", "Goles a Favor");
+  golesFavorSeries.strokes.template.setAll({ strokeWidth: 2 });
+
+  // Create series for "goles_contra"
+  var golesContraSeries = chart.series.push(am5xy.LineSeries.new(root, {
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueYField: "goles_contra",
+    categoryXField: "equipo",
+    tooltip: am5.Tooltip.new(root, {
+      labelText: "{name}: {valueY}"
+    })
+  }));
+
+  golesContraSeries.data.setAll(data);
+  golesContraSeries.set("name", "Goles en Contra");
+  golesContraSeries.strokes.template.setAll({ strokeWidth: 2 });
+
+  // Create series for "jugados"
+  var jugadosSeries = chart.series.push(am5xy.LineSeries.new(root, {
+    xAxis: xAxis,
+    yAxis: yAxis,
+    valueYField: "jugados",
+    categoryXField: "equipo",
+    tooltip: am5.Tooltip.new(root, {
+      labelText: "{name}: {valueY}"
+    })
+  }));
+
+  jugadosSeries.data.setAll(data);
+  jugadosSeries.set("name", "Partidos Jugados");
+  jugadosSeries.strokes.template.setAll({ strokeWidth: 2 });
+
+  // Add cursor
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+  chart.set("cursor", am5xy.XYCursor.new(root, {
+    xAxis: xAxis,
+    yAxis: yAxis
+  }));
+
+  xAxis.data.setAll(data);
+
+  // Make stuff animate on load
+  // https://www.amcharts.com/docs/v5/concepts/animations/
+  chart.appear(1000, 100);
+
+  }); // end am5.ready()
+</script>
+<!-- HTML -->
+<div id="chartdiv"></div>
